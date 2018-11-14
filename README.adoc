@@ -1,0 +1,1 @@
+= Options to enable caching, using crudini will not work since when running an update those settings will be overwritten, therefore, I have added them to the framework 
