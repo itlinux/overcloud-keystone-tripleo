@@ -1,0 +1,26 @@
+parameter_defaults:
+  ControllerExtraConfig:
+    keystone::cache_backend: dogpile.cache.memcached
+    keystone::cache_enabled: true
+    keystone::token_caching: true
+    keystone::cache_backend_argument: "os-lab1-controller-1.internalapi.localdomain:11211, os-lab1-controller-2.internalapi.localdomain:11211, os-lab1-controller-0.internalapi.localdomain:11211"
+    #If predictable IPs are used then you can use the IPs. Otherwise the above are resolved in the /etc/hosts of each controller. 
+    #keystone::cache_backend_argument: 172.16.230.90:11211, 172.16.230.91:11211, 172.16.230.92:11211
+    keystone::cache_backend: dogpile.cache.memcached
+    keystone::config::keystone_config:
+      domain_config/caching:
+         value: true
+      role/caching:
+         value: true
+      revoke/caching:
+         value: true
+      federation/caching:
+         value: true
+      catalog/caching:
+         value: true
+      identity/cache_time:
+         value: 600
+      identity/caching:
+         value: true
+      token/cache_on_issue:
+         value: true
